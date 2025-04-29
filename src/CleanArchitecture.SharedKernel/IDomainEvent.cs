@@ -1,4 +1,7 @@
-﻿using MediatR;
+﻿namespace CleanArchitecture.SharedKernel;
+public interface IDomainEvent
+{
+    Guid Id { get; }
 
-namespace CleanArchitecture.SharedKernel;
-public interface IDomainEvent : INotification;
+    DateTime OccurredOnUtc { get; }
+}

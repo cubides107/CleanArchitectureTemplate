@@ -5,6 +5,7 @@ using CleanArchitecture.Domain.Users.Errors;
 using CleanArchitecture.Domain.Users.Interfaces;
 using CleanArchitecture.Domain.Users.Specifications;
 using CleanArchitecture.SharedKernel;
+using Domain.Users;
 using MediatR;
 
 namespace CleanArchitecture.Application.Users.Register;
@@ -20,7 +21,10 @@ internal sealed class RegisterUserCommandHandler(IUserRepository repository,
         }
 
         string passwordHash = passwordHasher.Hash(command.Password);
+        
         var user = User.Create(command.Email, command.FirstName, command.LastName, passwordHash);
+
+        user.Raise(new UserRegisteredDomainEvent(user.Id));
 
         await repository.AddAsync(user, cancellationToken);
         await unitOfWork.SaveChangesAsync(cancellationToken);
