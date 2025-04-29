@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "cubides107.com",
+  "classifications": [
+    "Cloud",
+    "Service",
+    "Web"
+  ],
+  "name": "Plantilla Clean Architecture .NET 9 + DDD ",
+  "description": "Plantilla Clean Architecture",
+  "groupIdentity": "CleanArchitecture.Architecture.Template",
+  "identity": "Dotnet.Function.Timer.CSharp",
+  "shortName": "clean-architecture-template",
+  "defaultName": "CleanArchitecture",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "CleanArchitecture"
+}
