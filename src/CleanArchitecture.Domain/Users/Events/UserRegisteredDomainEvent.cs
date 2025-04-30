@@ -1,6 +1,6 @@
 ﻿using CleanArchitecture.SharedKernel;
 
-namespace Domain.Users;
+namespace CleanArchitecture.Domain.Users.Events;
 
 public sealed record UserRegisteredDomainEvent(Guid UserId) : IDomainEvent
 {

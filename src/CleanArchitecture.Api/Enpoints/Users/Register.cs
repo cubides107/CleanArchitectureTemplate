@@ -1,6 +1,6 @@
 ﻿using CleanArchitecture.Api.Extensions;
 using CleanArchitecture.Api.Infrastructure;
-using CleanArchitecture.Application.Users.Register;
+using CleanArchitecture.Application.Api.Users.Register;
 using CleanArchitecture.SharedKernel;
 using MediatR;
 using Web.Api.Endpoints;

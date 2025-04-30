@@ -1,5 +1,7 @@
-﻿namespace CleanArchitecture.SharedKernel;
-public interface IDomainEvent
+﻿using MediatR;
+
+namespace CleanArchitecture.SharedKernel;
+public interface IDomainEvent : INotification
 {
     Guid Id { get; }
 

@@ -3,10 +3,9 @@ using CleanArchitecture.Domain.Users.Dtos;
 using CleanArchitecture.Domain.Users.Errors;
 using CleanArchitecture.Domain.Users.Interfaces;
 using CleanArchitecture.SharedKernel;
-using Evently.Modules.Users.Application.Users.GetUserPermissions;
 using MediatR;
 
-namespace CleanArchitecture.Application.Users.GetUserPermissions;
+namespace CleanArchitecture.Application.Api.Users.GetUserPermissions;
 internal sealed class GetUserPermissionsQueryHandler(IUserRepository userRepository)
     : IRequestHandler<GetUserPermissionsQuery, Result<PermissionsResponse>>
 {

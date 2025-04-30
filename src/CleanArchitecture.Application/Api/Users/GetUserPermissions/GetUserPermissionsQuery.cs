@@ -2,5 +2,5 @@
 using CleanArchitecture.SharedKernel;
 using MediatR;
 
-namespace Evently.Modules.Users.Application.Users.GetUserPermissions;
+namespace CleanArchitecture.Application.Api.Users.GetUserPermissions;
 public sealed record GetUserPermissionsQuery(string IdentityId) : IRequest<Result<PermissionsResponse>>;

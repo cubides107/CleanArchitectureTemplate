@@ -1,6 +1,6 @@
 ﻿using CleanArchitecture.Application.Abstractions.Authorization;
+using CleanArchitecture.Application.Api.Users.GetUserPermissions;
 using CleanArchitecture.SharedKernel;
-using Evently.Modules.Users.Application.Users.GetUserPermissions;
 using MediatR;
 
 namespace CleanArchitecture.Infrastructure.Authorization;

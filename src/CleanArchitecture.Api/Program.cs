@@ -2,7 +2,7 @@ using System.Globalization;
 using System.Reflection;
 using CleanArchitecture.Api;
 using CleanArchitecture.Api.Extensions;
-using CleanArchitecture.Application;
+using CleanArchitecture.Application.Api.Users;
 using CleanArchitecture.Infrastructure;
 using Microsoft.AspNetCore.Localization;
 
@@ -10,10 +10,15 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSwaggerGenWithAuth();
 
+builder.Services.AddMediatR(configuration =>
+{
+    configuration.RegisterServicesFromAssembly(typeof(Program).Assembly);
+});
+
 builder.Services
+    .AddNotificationHandlers(typeof(DependencyInjectionApplication).Assembly)
     .AddApi()
-    .AddInfrastructure(builder.Configuration)
-    .AddAplication();
+    .AddInfrastructure(builder.Configuration);
 
 builder.Services.AddEndpoints(Assembly.GetExecutingAssembly());
 
