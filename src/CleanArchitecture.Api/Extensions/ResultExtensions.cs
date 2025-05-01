@@ -1,4 +1,4 @@
-﻿using CleanArchitecture.SharedKernel;
+﻿using CleanArchitecture.Domain.Common.SharedKernel;
 
 namespace CleanArchitecture.Api.Extensions;
 public static class ResultExtensions

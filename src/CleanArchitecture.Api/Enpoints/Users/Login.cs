@@ -1,7 +1,7 @@
 ﻿using CleanArchitecture.Api.Extensions;
 using CleanArchitecture.Api.Infrastructure;
-using CleanArchitecture.Application.Users.Commands.Login;
-using CleanArchitecture.SharedKernel;
+using CleanArchitecture.Application.Api.Users.Commands.Login;
+using CleanArchitecture.Domain.Common.SharedKernel;
 using MediatR;
 
 namespace CleanArchitecture.Api.Enpoints.Users;

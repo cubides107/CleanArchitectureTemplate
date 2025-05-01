@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
 using CleanArchitecture.Application.Abstractions.Authorization;
 using CleanArchitecture.Application.Abstractions.Exceptions;
+using CleanArchitecture.Domain.Common.SharedKernel;
 using CleanArchitecture.Infrastructure.Authentication;
-using CleanArchitecture.SharedKernel;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 

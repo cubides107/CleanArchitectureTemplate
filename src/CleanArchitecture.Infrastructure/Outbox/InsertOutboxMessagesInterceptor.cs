@@ -1,5 +1,5 @@
-﻿using CleanArchitecture.Infrastructure.Serialization;
-using CleanArchitecture.SharedKernel;
+﻿using CleanArchitecture.Domain.Common.SharedKernel;
+using CleanArchitecture.Infrastructure.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Newtonsoft.Json;

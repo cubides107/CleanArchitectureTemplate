@@ -1,4 +1,4 @@
-﻿using CleanArchitecture.SharedKernel;
+﻿using CleanArchitecture.Domain.Common.SharedKernel;
 
 namespace CleanArchitecture.Api.Infrastructure;
 internal static class CustomResults

@@ -1,4 +1,4 @@
-﻿using CleanArchitecture.SharedKernel;
+﻿using CleanArchitecture.Domain.Common.SharedKernel;
 using MediatR;
 
 namespace CleanArchitecture.Application.Abstractions.Messaging;
