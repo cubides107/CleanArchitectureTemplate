@@ -1,4 +1,4 @@
-using CleanArchitecture.Application.Worker.UserRegisterEvent;
+using CleanArchitecture.Application.Users.Events.UserRegisteredEvent;
 using CleanArchitecture.Domain.Users.Events;
 using CleanArchitecture.Worker.Consumers;
 using CleanArchitecture.Worker.Data;

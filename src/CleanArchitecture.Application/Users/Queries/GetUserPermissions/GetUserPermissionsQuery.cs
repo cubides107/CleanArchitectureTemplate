@@ -2,5 +2,5 @@
 using CleanArchitecture.SharedKernel;
 using MediatR;
 
-namespace CleanArchitecture.Application.Api.Users.GetUserPermissions;
+namespace CleanArchitecture.Application.Users.Queries.GetUserPermissions;
 public sealed record GetUserPermissionsQuery(string IdentityId) : IRequest<Result<PermissionsResponse>>;

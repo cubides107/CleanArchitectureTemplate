@@ -1,5 +1,5 @@
 ﻿using CleanArchitecture.SharedKernel;
 using MediatR;
 
-namespace CleanArchitecture.Application.Api.Users.Login;
+namespace CleanArchitecture.Application.Users.Commands.Login;
 public record LoginUserCommand(string Email, string Password) : IRequest<Result<string>>;

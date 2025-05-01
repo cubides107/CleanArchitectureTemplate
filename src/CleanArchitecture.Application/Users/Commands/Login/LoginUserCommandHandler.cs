@@ -6,7 +6,7 @@ using CleanArchitecture.Domain.Users.Specifications;
 using CleanArchitecture.SharedKernel;
 using MediatR;
 
-namespace CleanArchitecture.Application.Api.Users.Login;
+namespace CleanArchitecture.Application.Users.Commands.Login;
 public sealed class LoginUserCommandHandler(
     IPasswordHasher passwordHasher, IUserRepository userRepository,
     ITokenProvider tokenProvider) : IRequestHandler<LoginUserCommand, Result<string>>

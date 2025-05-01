@@ -2,8 +2,8 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CleanArchitecture.Application.Api.Users;
-public  static class DependencyInjectionApplication
+namespace CleanArchitecture.Application.Users;
+public static class DependencyInjectionApplication
 {
     public static IServiceCollection AddNotificationHandlers(this IServiceCollection services, Assembly assembly)
     {

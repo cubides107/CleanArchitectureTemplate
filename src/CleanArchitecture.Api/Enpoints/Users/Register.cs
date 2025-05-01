@@ -1,9 +1,8 @@
 ﻿using CleanArchitecture.Api.Extensions;
 using CleanArchitecture.Api.Infrastructure;
-using CleanArchitecture.Application.Api.Users.Register;
+using CleanArchitecture.Application.Users.Commands.Register;
 using CleanArchitecture.SharedKernel;
 using MediatR;
-using Web.Api.Endpoints;
 
 namespace CleanArchitecture.Api.Enpoints.Users;
 internal sealed class Register : IEndpoint

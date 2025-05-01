@@ -8,7 +8,7 @@ using CleanArchitecture.Domain.Users.Specifications;
 using CleanArchitecture.SharedKernel;
 using MediatR;
 
-namespace CleanArchitecture.Application.Api.Users.Register;
+namespace CleanArchitecture.Application.Users.Commands.Register;
 internal sealed class RegisterUserCommandHandler(IUserRepository repository,
     IPasswordHasher passwordHasher, IUnitOfWork unitOfWork)
     : IRequestHandler<RegisterUserCommand, Result<Guid>>

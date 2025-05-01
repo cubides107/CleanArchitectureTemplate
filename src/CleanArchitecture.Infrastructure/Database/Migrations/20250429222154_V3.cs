@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace CleanArchitecture.Infrastructure.Database.Migrations
+namespace oCleanArchitecture.Infrastructure.Database.Migrations
 {
     /// <inheritdoc />
     public partial class V3 : Migration

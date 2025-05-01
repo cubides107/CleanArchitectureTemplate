@@ -1,4 +1,4 @@
-﻿using Web.Api.Infrastructure;
+﻿using CleanArchitecture.Api.Infrastructure;
 
 namespace CleanArchitecture.Api;
 internal static class DependencyInjection

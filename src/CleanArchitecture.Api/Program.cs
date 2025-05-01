@@ -2,7 +2,7 @@ using System.Globalization;
 using System.Reflection;
 using CleanArchitecture.Api;
 using CleanArchitecture.Api.Extensions;
-using CleanArchitecture.Application.Api.Users;
+using CleanArchitecture.Application.Users;
 using CleanArchitecture.Infrastructure;
 using Microsoft.AspNetCore.Localization;
 

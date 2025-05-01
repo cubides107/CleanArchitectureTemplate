@@ -1,7 +1,7 @@
 ﻿using CleanArchitecture.Domain.Users.Events;
 using MediatR;
 
-namespace CleanArchitecture.Application.Worker.UserRegisterEvent;
+namespace CleanArchitecture.Application.Users.Events.UserRegisteredEvent;
 
 [WorkerHandler]
 public class UserRegisteredDomainEventHandler : INotificationHandler<UserRegisteredDomainEvent>

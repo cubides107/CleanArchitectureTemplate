@@ -5,7 +5,7 @@ using CleanArchitecture.Domain.Users.Interfaces;
 using CleanArchitecture.SharedKernel;
 using MediatR;
 
-namespace CleanArchitecture.Application.Api.Users.GetUserPermissions;
+namespace CleanArchitecture.Application.Users.Queries.GetUserPermissions;
 internal sealed class GetUserPermissionsQueryHandler(IUserRepository userRepository)
     : IRequestHandler<GetUserPermissionsQuery, Result<PermissionsResponse>>
 {
