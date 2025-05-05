@@ -5,7 +5,7 @@ using CleanArchitecture.Domain.Common.SharedKernel;
 using MediatR;
 
 namespace CleanArchitecture.Api.Enpoints.Users;
-internal sealed class Register : IEndpoint
+public sealed class Register : IEndpoint
 {
     internal sealed record Request(string Email, string FirstName, string LastName, string Password);
 

@@ -9,25 +9,25 @@ using MediatR;
 namespace CleanArchitecture.Application.Api.Users.Commands.Login;
 public sealed class LoginUserCommandHandler(
     IPasswordHasher passwordHasher, IUserRepository userRepository,
-    ITokenProvider tokenProvider) : IRequestHandler<LoginUserCommand, Result<string>>
+    ITokenProvider tokenProvider) : IRequestHandler<LoginUserCommand, Result<LoginUserDto>>
 {
-    public async Task<Result<string>> Handle(LoginUserCommand command, CancellationToken cancellationToken)
+    public async Task<Result<LoginUserDto>> Handle(LoginUserCommand command, CancellationToken cancellationToken)
     {
         User? user = await userRepository.FirstOrDefaultAsync(new UserByEmailSpec(command.Email), cancellationToken);
         if (user is null)
         {
-            return Result.Failure<string>(UserErrors.NotFoundByEmail);
+            return Result.Failure<LoginUserDto>(UserErrors.NotFoundByEmail);
         }
 
         bool verified = passwordHasher.Verify(command.Password, user.PasswordHash);
 
         if (!verified)
         {
-            return Result.Failure<string>(UserErrors.NotFoundByEmail);
+            return Result.Failure<LoginUserDto>(UserErrors.NotFoundByEmail);
         }
 
         string token = tokenProvider.Create(user);
 
-        return token;
+        return new LoginUserDto(token);
     }
 }

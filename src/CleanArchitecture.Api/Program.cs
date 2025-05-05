@@ -49,3 +49,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 await app.RunAsync();
+
+public partial class Program;
