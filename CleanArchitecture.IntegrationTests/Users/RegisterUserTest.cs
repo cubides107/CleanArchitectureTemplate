@@ -1,5 +1,4 @@
 ﻿using System.Net.Http.Json;
-using CleanArchitecture.Application.Api.Users.Commands.Login;
 using CleanArchitecture.Application.Api.Users.Commands.Register;
 using CleanArchitecture.IntegrationTests.Abstractions;
 using Xunit;
@@ -8,8 +7,7 @@ using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 namespace CleanArchitecture.IntegrationTests.Users;
 public class RegisterUserTest : BaseIntegrationTest
 {
-    public RegisterUserTest(
-        IntegrationTestWebAppFactory factory): base(factory)
+    public RegisterUserTest(IntegrationTestWebAppFactory factory): base(factory)
     {
         
     }
@@ -24,8 +22,9 @@ public class RegisterUserTest : BaseIntegrationTest
         await GetToken();
         HttpResponseMessage response = await HttpClient.PostAsJsonAsync("users/register", request);
         response.EnsureSuccessStatusCode();
-
         string userId = await response.Content.ReadAsStringAsync();
+
+        //Assert
         Assert.IsNotNull(userId);
     }
 }

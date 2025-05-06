@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
 using System.Text;
-using CleanArchitecture.Application.Abstractions.Authentication;
 using CleanArchitecture.Domain.Users.Entities;
+using CleanArchitecture.Domain.Users.Interfaces.Authentication;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;

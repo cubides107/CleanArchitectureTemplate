@@ -1,4 +1,4 @@
-﻿using CleanArchitecture.Application.Abstractions.Authentication;
+﻿using CleanArchitecture.Domain.Users.Interfaces.Authentication;
 using Microsoft.AspNetCore.Http;
 
 namespace CleanArchitecture.Infrastructure.Authentication;
