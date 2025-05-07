@@ -8,24 +8,23 @@ using CleanArchitecture.Domain.Users.Specifications;
 using FluentAssertions;
 using NSubstitute;
 using NSubstitute.ReturnsExtensions;
+using Xunit;
 
 namespace CleanArchitecture.UnitTests.Users.Services;
 
-[TestClass]
 public class LoginServiceTests
 {
-    private LoginService _loginService = default!;
+    private readonly LoginService _loginService;
     private readonly IUserRepository userRepository = Substitute.For<IUserRepository>()!;
     private readonly IPasswordHasher passwordHasher = Substitute.For<IPasswordHasher>()!;
     private readonly ITokenProvider tokenProvider = Substitute.For<ITokenProvider>()!;
 
-    [TestInitialize()]
-    public void Initialize()
+    public LoginServiceTests()
     {
         _loginService = new LoginService(userRepository, tokenProvider, passwordHasher);
     }
 
-    [TestMethod]
+    [Fact]
     public async Task Login_WhenCredentialAreCorrect_ShouldReturnToken()
     {
         //Arrange
@@ -44,8 +43,8 @@ public class LoginServiceTests
         token.Value.Should().Be("JADFSDFAF234234VSDFAFfsdfsf");
     }
 
-    [TestMethod]
-    public void Login_WhenUserNoExits_ShouldReturnNotFoundByEmail()
+    [Fact]
+    public async Task Login_WhenUserNoExits_ShouldReturnNotFoundByEmail()
     {
         //Arrange
         string email = "cristian@gmail.com";
@@ -54,14 +53,14 @@ public class LoginServiceTests
         userRepository.FirstOrDefaultAsync(new UserByEmailSpec(email)).ReturnsNull();
 
         //Act
-        Task<Result<string>> token = _loginService.Login(email, password, CancellationToken.None);
+        Result<string> token = await _loginService.Login(email, password, CancellationToken.None);
 
         //Assert
-        token.Result.Error.Should().Be(UserErrors.NotFoundByEmail);
+        token.Error.Should().Be(UserErrors.NotFoundByEmail);
     }
 
-    [TestMethod]
-    public void Login_WhenCredentialIncorrect_ShouldReturnNotFoundByEmail()
+    [Fact]
+    public async Task Login_WhenCredentialIncorrect_ShouldReturnNotFoundByEmail()
     {
         //Arrange
         string email = "cristian@gmail.com";
@@ -69,12 +68,12 @@ public class LoginServiceTests
         var user = User.Create(email, "cristian.cubides@gmail.com", "cubides", "HSDFHS2342");
 
         userRepository.FirstOrDefaultAsync(Arg.Any<UserByEmailSpec>()).Returns(user);
-        passwordHasher.Verify(password, "HSDFHS2342").Returns(false); 
+        passwordHasher.Verify(password, "HSDFHS2342").Returns(false);
 
         //Act
-        Task<Result<string>> token = _loginService.Login(email, password, CancellationToken.None);
+        Result<string> token = await _loginService.Login(email, password, CancellationToken.None);
 
         //Assert
-        token.Result.Error.Should().Be(UserErrors.NotFoundByEmail);
+        token.Error.Should().Be(UserErrors.NotFoundByEmail);
     }
 }
