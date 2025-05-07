@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Domain.Common.SharedKernel;
+﻿using CleanArchitecture.Domain.Common.Extensions;
+using CleanArchitecture.Domain.Common.SharedKernel;
 using CleanArchitecture.Domain.Users.Services;
 using MediatR;
 
@@ -8,11 +9,8 @@ public sealed class LoginUserCommandHandler(
 {
     public async Task<Result<LoginUserDto>> Handle(LoginUserCommand command, CancellationToken cancellationToken)
     {
-        Result<string> token = await loginService.Login(command.Email, command.Password, cancellationToken);
-        if (token.IsFailure)
-        {
-            return Result.Failure<LoginUserDto>(token.Error);
-        }
-        return new LoginUserDto(token.Value);
+        return await loginService
+            .Login(command.Email, command.Password, cancellationToken)
+            .MapAsync(token => new LoginUserDto(token));
     }
 }
