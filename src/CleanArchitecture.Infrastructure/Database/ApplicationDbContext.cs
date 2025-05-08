@@ -1,4 +1,6 @@
 ﻿using CleanArchitecture.Domain.Common.Interfaces;
+using CleanArchitecture.Domain.Orders.Entities;
+using CleanArchitecture.Domain.Products.Entities;
 using CleanArchitecture.Domain.Users.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +9,9 @@ public sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext> 
     : DbContext(options), IUnitOfWork
 {
     internal DbSet<User> Users { get; set; }
+    internal DbSet<Product> Products { get; set; }
+    internal DbSet<Order> Orders { get; set; }
+    internal DbSet<OrderDetail> OrderDetails { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
