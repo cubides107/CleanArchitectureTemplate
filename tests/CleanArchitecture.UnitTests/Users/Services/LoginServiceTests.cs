@@ -5,6 +5,7 @@ using CleanArchitecture.Domain.Users.Interfaces;
 using CleanArchitecture.Domain.Users.Interfaces.Authentication;
 using CleanArchitecture.Domain.Users.Services;
 using CleanArchitecture.Domain.Users.Specifications;
+using CleanArchitecture.UnitTests.Users.Builders;
 using FluentAssertions;
 using NSubstitute;
 using NSubstitute.ReturnsExtensions;
@@ -65,7 +66,7 @@ public class LoginServiceTests
         //Arrange
         string email = "cristian@gmail.com";
         string password = "12345";
-        var user = User.Create(email, "cristian.cubides@gmail.com", "cubides", "HSDFHS2342");
+        User user = new UserBuilder().WithEmail(email).WithPasswordHash("JA#4SDF34").Build();
 
         userRepository.FirstOrDefaultAsync(Arg.Any<UserByEmailSpec>()).Returns(user);
         passwordHasher.Verify(password, "HSDFHS2342").Returns(false);
