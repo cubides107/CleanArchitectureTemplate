@@ -19,7 +19,7 @@ internal sealed class TokenProvider(IConfiguration configuration) : ITokenProvid
         var claims = new List<Claim>
         {
             new(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            new(JwtRegisteredClaimNames.Email, user.Email)
+            new(JwtRegisteredClaimNames.Email, user.Email.Value)
         };
 
         var tokenDescriptor = new SecurityTokenDescriptor

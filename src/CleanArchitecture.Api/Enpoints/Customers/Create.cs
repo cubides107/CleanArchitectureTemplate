@@ -2,22 +2,22 @@
 using CleanArchitecture.Api.Enpoints.Users;
 using CleanArchitecture.Api.Extensions;
 using CleanArchitecture.Api.Infrastructure;
-using CleanArchitecture.Application.Api.Orders.Commands.Create;
+using CleanArchitecture.Application.Api.Customers.Commands.Create;
 using CleanArchitecture.Domain.Common.SharedKernel;
 using MediatR;
 
-namespace CleanArchitecture.Api.Enpoints.Orders;
+namespace CleanArchitecture.Api.Enpoints.Customers;
 
-public sealed class Create : IEndpoint
+public class Create : IEndpoint
 {
     public void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapPost("orders", async (CreateOrderCommand request, ISender sender, CancellationToken cancellationToken) =>
+        app.MapPost("customers", async (CreateCustomerCommand request, ISender sender, CancellationToken cancellationToken) =>
         {
             Result result = await sender.Send(request, cancellationToken);
             return result.Match(Results.Created, CustomResults.Problem);
         })
        .HasPermission(Permissions.UsersCreate)
-       .WithTags(Tags.Orders);
+       .WithTags(Tags.Customers);
     }
 }

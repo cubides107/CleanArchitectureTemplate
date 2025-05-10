@@ -1,5 +1,6 @@
 ﻿using CleanArchitecture.Domain.Common.Interfaces;
 using CleanArchitecture.Domain.Common.SharedKernel;
+using CleanArchitecture.Domain.Customers.ValueObjects;
 using CleanArchitecture.Domain.Users.Entities;
 using CleanArchitecture.Domain.Users.Errors;
 using CleanArchitecture.Domain.Users.Events;
@@ -22,7 +23,7 @@ internal sealed class RegisterUserCommandHandler(IUserRepository repository,
 
         string passwordHash = passwordHasher.Hash(command.Password);
 
-        var user = User.Create(command.Email, command.FirstName, command.LastName, passwordHash);
+        var user = User.Create(new Email(command.Email), command.FirstName, command.LastName, passwordHash);
 
         user.Raise(new UserRegisteredDomainEvent(user.Id));
 

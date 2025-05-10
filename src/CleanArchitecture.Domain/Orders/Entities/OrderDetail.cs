@@ -12,7 +12,7 @@ public class OrderDetail : Entity
 
     public OrderDetail(){}
 
-    public OrderDetail Create(Guid productId, string productName, int Quantity, decimal UnitPrice)
+    public static OrderDetail Create(Guid productId, string productName, int Quantity, decimal UnitPrice)
     {
         return new OrderDetail()
         {

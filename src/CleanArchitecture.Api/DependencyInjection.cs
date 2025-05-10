@@ -1,4 +1,5 @@
 ﻿using CleanArchitecture.Api.Infrastructure;
+using CleanArchitecture.Api.Middlewares;
 
 namespace CleanArchitecture.Api;
 internal static class DependencyInjection
@@ -9,6 +10,7 @@ internal static class DependencyInjection
         services.AddSwaggerGen();
 
         services.AddExceptionHandler<GlobalExceptionHandler>();
+        services.AddExceptionHandler<InvalidFormatExceptionMiddleware>();
         services.AddProblemDetails();
 
         return services;

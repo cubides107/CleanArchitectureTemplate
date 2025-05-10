@@ -11,7 +11,18 @@ public class Order : Entity
 
     public Order()
     {
-        
+
+    }
+
+    public void AddOrderDetail(OrderDetail orderDetail)
+    {
+        Details.Add(orderDetail);
+        CalculateTotal();
+    }
+
+    private void CalculateTotal()
+    {
+        Total = Details.Sum(orderDetail => orderDetail.Subtotal);
     }
 
     public static Order Create(Guid id, Guid customerId)

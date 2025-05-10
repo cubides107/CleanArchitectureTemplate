@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Domain.Users.Entities;
+﻿using CleanArchitecture.Domain.Customers.ValueObjects;
+using CleanArchitecture.Domain.Users.Entities;
 
 namespace CleanArchitecture.UnitTests.Users.Builders;
 internal sealed class UserBuilder
@@ -34,6 +35,6 @@ internal sealed class UserBuilder
 
     public User Build()
     {
-        return User.Create(_email, _firstName, _lastName, _passwordHash);
+        return User.Create(new Email(_email), _firstName, _lastName, _passwordHash);
     }
 }

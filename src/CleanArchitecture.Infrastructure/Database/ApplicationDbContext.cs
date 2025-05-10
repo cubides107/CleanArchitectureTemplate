@@ -1,4 +1,5 @@
 ﻿using CleanArchitecture.Domain.Common.Interfaces;
+using CleanArchitecture.Domain.Customers.Entities;
 using CleanArchitecture.Domain.Orders.Entities;
 using CleanArchitecture.Domain.Products.Entities;
 using CleanArchitecture.Domain.Users.Entities;
@@ -12,6 +13,8 @@ public sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext> 
     internal DbSet<Product> Products { get; set; }
     internal DbSet<Order> Orders { get; set; }
     internal DbSet<OrderDetail> OrderDetails { get; set; }
+
+    internal DbSet<Customer> Customers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

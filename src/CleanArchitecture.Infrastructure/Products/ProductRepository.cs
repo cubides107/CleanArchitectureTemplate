@@ -3,7 +3,6 @@ using Ardalis.Specification.EntityFrameworkCore;
 using CleanArchitecture.Domain.Products.Entities;
 using CleanArchitecture.Domain.Products.Interfaces;
 using CleanArchitecture.Infrastructure.Database;
-using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.Infrastructure.Products;
 

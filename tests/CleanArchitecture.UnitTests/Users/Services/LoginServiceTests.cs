@@ -1,4 +1,5 @@
 ﻿using CleanArchitecture.Domain.Common.SharedKernel;
+using CleanArchitecture.Domain.Customers.ValueObjects;
 using CleanArchitecture.Domain.Users.Entities;
 using CleanArchitecture.Domain.Users.Errors;
 using CleanArchitecture.Domain.Users.Interfaces;
@@ -31,7 +32,7 @@ public class LoginServiceTests
         //Arrange
         string email = "cristian@gmail.com";
         string password = "12345";
-        var user = User.Create(email, "cristian", "cubides", "HSDFHS2342");
+        var user = User.Create(new Email(email), "cristian", "cubides", "HSDFHS2342");
 
         userRepository.FirstOrDefaultAsync(Arg.Any<UserByEmailSpec>()).Returns(user);
         passwordHasher.Verify(password, "HSDFHS2342").Returns(true);
