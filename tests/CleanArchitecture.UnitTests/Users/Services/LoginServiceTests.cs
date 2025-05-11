@@ -17,9 +17,9 @@ namespace CleanArchitecture.UnitTests.Users.Services;
 public class LoginServiceTests
 {
     private readonly LoginService _loginService;
-    private readonly IUserRepository userRepository = Substitute.For<IUserRepository>()!;
-    private readonly IPasswordHasher passwordHasher = Substitute.For<IPasswordHasher>()!;
-    private readonly ITokenProvider tokenProvider = Substitute.For<ITokenProvider>()!;
+    private readonly IUserRepository userRepository = Substitute.For<IUserRepository>();
+    private readonly IPasswordHasher passwordHasher = Substitute.For<IPasswordHasher>();
+    private readonly ITokenProvider tokenProvider = Substitute.For<ITokenProvider>();
 
     public LoginServiceTests()
     {

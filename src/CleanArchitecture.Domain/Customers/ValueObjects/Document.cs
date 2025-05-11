@@ -21,7 +21,7 @@ public class Document
     {
         return type switch
         {
-            DocumentType.CC => Regex.IsMatch(value, @"^\d{10}$"),      
+            DocumentType.CC => Regex.IsMatch(value, @"^\d{6,10}$"),      
             DocumentType.DNI => Regex.IsMatch(value, @"^\d{8}$"),      
             DocumentType.NIF => Regex.IsMatch(value, @"^[0-9A-Z]{9}$"),
             DocumentType.Passport => Regex.IsMatch(value, @"^[A-Z0-9]{6,9}$"), 
