@@ -9,6 +9,7 @@ using MediatR;
 using Microsoft.Extensions.Logging;
 using CleanArchitecture.Domain.Common.SharedKernel;
 using System.Text.Json;
+using CleanArchitecture.Application.Abstractions.Exceptions;
 
 namespace CleanArchitecture.Infrastructure.Outbox;
 [DisallowConcurrentExecution]
@@ -33,12 +34,8 @@ internal sealed class ProcessOutboxJob(
 
             try
             {
-                IDomainEvent? domainEvent = JsonSerializer.Deserialize<IDomainEvent>(outboxMessage.Content, SerializerSettings.Instance);
-
-                if (domainEvent is null)
-                {
-                    throw new Exception("Error en la desearializacion de mensaje");
-                }
+                IDomainEvent domainEvent = JsonSerializer.Deserialize<IDomainEvent>(outboxMessage.Content, SerializerSettings.Instance) 
+                    ?? throw new AppException($"Error during message {nameof(IDomainEvent)} deserialization");
 
                 await mediator.Publish(domainEvent);
             }
