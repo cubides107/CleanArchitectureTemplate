@@ -11,10 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Domain", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Infrastructure", "src\CleanArchitecture.Infrastructure\CleanArchitecture.Infrastructure.csproj", "{BF22F750-7DF8-4B40-B7E0-F8DBD6B73885}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.SharedKernel", "src\CleanArchitecture.SharedKernel\CleanArchitecture.SharedKernel.csproj", "{67091CA1-6BE2-4187-8085-57DFBAC2FE5E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Worker", "src\CleanArchitecture.Worker\CleanArchitecture.Worker.csproj", "{E0F1DC1E-6B30-4DDA-88B1-F02D58D78168}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,16 +33,11 @@ Global
 		{BF22F750-7DF8-4B40-B7E0-F8DBD6B73885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF22F750-7DF8-4B40-B7E0-F8DBD6B73885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF22F750-7DF8-4B40-B7E0-F8DBD6B73885}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67091CA1-6BE2-4187-8085-57DFBAC2FE5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67091CA1-6BE2-4187-8085-57DFBAC2FE5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67091CA1-6BE2-4187-8085-57DFBAC2FE5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67091CA1-6BE2-4187-8085-57DFBAC2FE5E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E0F1DC1E-6B30-4DDA-88B1-F02D58D78168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0F1DC1E-6B30-4DDA-88B1-F02D58D78168}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E0F1DC1E-6B30-4DDA-88B1-F02D58D78168}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E0F1DC1E-6B30-4DDA-88B1-F02D58D78168}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53387BCF-DACA-40BE-850C-CA714609138E}
 	EndGlobalSection
 EndGlobal

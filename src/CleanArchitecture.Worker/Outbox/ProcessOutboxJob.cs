@@ -4,10 +4,10 @@ using Dapper;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Quartz;
-using CleanArchitecture.SharedKernel;
 using CleanArchitecture.Infrastructure.Serialization;
 using CleanArchitecture.Worker.Data;
 using MediatR;
+using CleanArchitecture.Domain.Common.SharedKernel;
 
 namespace CleanArchitecture.Worker.Outbox;
 [DisallowConcurrentExecution]

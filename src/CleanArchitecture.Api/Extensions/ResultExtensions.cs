@@ -1,7 +1,7 @@
 ﻿using CleanArchitecture.SharedKernel;
 
 namespace CleanArchitecture.Api.Extensions;
-public static class ResultExtensions
+internal static class ResultExtensions
 {
     public static TOut Match<TOut>(
         this Result result,

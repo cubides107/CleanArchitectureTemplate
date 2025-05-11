@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CleanArchitecture.SharedKernel;
+namespace CleanArchitecture.Domain.Common.SharedKernel;
 public interface IDomainEvent : INotification
 {
     Guid Id { get; }

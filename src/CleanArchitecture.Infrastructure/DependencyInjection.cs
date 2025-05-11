@@ -5,7 +5,7 @@ using CleanArchitecture.Domain.Common.Interfaces;
 using CleanArchitecture.Infrastructure.Authentication;
 using CleanArchitecture.Infrastructure.Authorization;
 using CleanArchitecture.Infrastructure.Database;
-using CleanArchitecture.Infrastructure.Outbox;
+using CleanArchitecture.Infrastructure.Interceptors;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -29,7 +29,7 @@ public static class DependencyInjection
              .AddDatabase(configuration)
              .AddDomainServices();
 
-        services.TryAddSingleton<InsertOutboxMessagesInterceptor>();
+        services.TryAddSingleton<PublishDomainEventsInterceptor>();
         return services;
     }
 
@@ -71,7 +71,7 @@ public static class DependencyInjection
             (sp, options) => options
                 .UseNpgsql(connectionString, npgsqlOptions =>
                     npgsqlOptions.MigrationsHistoryTable(HistoryRepository.DefaultTableName))
-                .AddInterceptors(sp.GetRequiredService<InsertOutboxMessagesInterceptor>())
+                .AddInterceptors(sp.GetRequiredService<PublishDomainEventsInterceptor>())
                 .UseSnakeCaseNamingConvention());
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
         return services;

@@ -1,4 +1,6 @@
-﻿namespace CleanArchitecture.SharedKernel;
+﻿using CleanArchitecture.Domain.Common.SharedKernel;
+
+namespace CleanArchitecture.SharedKernel;
 
 public abstract class Entity
 {

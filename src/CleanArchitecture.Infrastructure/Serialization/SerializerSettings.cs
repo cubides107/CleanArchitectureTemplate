@@ -1,12 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿
+using System.Text.Json;
 
 namespace CleanArchitecture.Infrastructure.Serialization;
 
 public static class SerializerSettings
 {
-    public static readonly JsonSerializerSettings Instance = new()
+    public static readonly JsonSerializerOptions Instance = new()
     {
-        TypeNameHandling = TypeNameHandling.All,
-        MetadataPropertyHandling = MetadataPropertyHandling.ReadAhead
+        AllowOutOfOrderMetadataProperties = true
     };
 }
