@@ -23,14 +23,15 @@ namespace CleanArchitecture.Infrastructure.Database.Migrations
                     last_name = table.Column<string>(type: "text", nullable: false),
                     email = table.Column<string>(type: "text", nullable: false),
                     phone_number = table.Column<string>(type: "text", nullable: false),
-                    identity_document = table.Column<string>(type: "text", nullable: false),
                     registration_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     is_active = table.Column<bool>(type: "boolean", nullable: false),
                     address_city = table.Column<string>(type: "text", nullable: false),
                     address_country = table.Column<string>(type: "text", nullable: false),
                     address_state = table.Column<string>(type: "text", nullable: false),
                     address_street = table.Column<string>(type: "text", nullable: false),
-                    address_zip_code = table.Column<string>(type: "text", nullable: false)
+                    address_zip_code = table.Column<string>(type: "text", nullable: false),
+                    identity_document_type = table.Column<int>(type: "integer", nullable: false),
+                    identity_document_value = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,8 +44,16 @@ namespace CleanArchitecture.Infrastructure.Database.Migrations
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false),
                     customer_id = table.Column<Guid>(type: "uuid", nullable: false),
+                    order_status = table.Column<int>(type: "integer", nullable: false),
+                    tracking_code = table.Column<string>(type: "text", nullable: false),
+                    total = table.Column<decimal>(type: "numeric", nullable: false),
+                    payment_id = table.Column<Guid>(type: "uuid", nullable: true),
                     created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    total = table.Column<decimal>(type: "numeric", nullable: false)
+                    shipping_address_city = table.Column<string>(type: "text", nullable: false),
+                    shipping_address_country = table.Column<string>(type: "text", nullable: false),
+                    shipping_address_state = table.Column<string>(type: "text", nullable: false),
+                    shipping_address_street = table.Column<string>(type: "text", nullable: false),
+                    shipping_address_zip_code = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {

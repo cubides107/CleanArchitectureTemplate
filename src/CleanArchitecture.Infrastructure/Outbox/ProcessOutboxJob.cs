@@ -2,13 +2,13 @@
 using System.Data.Common;
 using Dapper;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 using Quartz;
 using CleanArchitecture.Infrastructure.Serialization;
 using CleanArchitecture.Infrastructure.Data;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using CleanArchitecture.Domain.Common.SharedKernel;
+using System.Text.Json;
 
 namespace CleanArchitecture.Infrastructure.Outbox;
 [DisallowConcurrentExecution]
@@ -33,9 +33,12 @@ internal sealed class ProcessOutboxJob(
 
             try
             {
-                IDomainEvent domainEvent = JsonConvert.DeserializeObject<IDomainEvent>(
-                    outboxMessage.Content,
-                    SerializerSettings.Instance)!;
+                IDomainEvent? domainEvent = JsonSerializer.Deserialize<IDomainEvent>(outboxMessage.Content, SerializerSettings.Instance);
+
+                if (domainEvent is null)
+                {
+                    throw new Exception("Error en la desearializacion de mensaje");
+                }
 
                 await mediator.Publish(domainEvent);
             }

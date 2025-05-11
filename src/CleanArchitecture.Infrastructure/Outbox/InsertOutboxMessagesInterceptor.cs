@@ -1,8 +1,13 @@
-﻿using CleanArchitecture.Domain.Common.SharedKernel;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization.Metadata;
+using CleanArchitecture.Domain.Common.Ports;
+using CleanArchitecture.Domain.Common.SharedKernel;
+using CleanArchitecture.Domain.Orders.Events;
+using CleanArchitecture.Domain.Products.Entities;
 using CleanArchitecture.Infrastructure.Serialization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Newtonsoft.Json;
+using Microsoft.Extensions.Options;
 
 namespace CleanArchitecture.Infrastructure.Outbox;
 
@@ -39,7 +44,7 @@ public sealed class InsertOutboxMessagesInterceptor : SaveChangesInterceptor
             {
                 Id = domainEvent.Id,
                 Type = domainEvent.GetType().Name,
-                Content = JsonConvert.SerializeObject(domainEvent, SerializerSettings.Instance),
+                Content = JsonSerializer.Serialize(domainEvent, SerializerSettings.Instance),
                 OccurredOnUtc = domainEvent.OccurredOnUtc
             })
             .ToList();

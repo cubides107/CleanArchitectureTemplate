@@ -13,7 +13,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CleanArchitecture.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250510002625_Initial")]
+    [Migration("20250510202940_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -42,11 +42,6 @@ namespace CleanArchitecture.Infrastructure.Database.Migrations
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("first_name");
-
-                    b.Property<string>("IdentityDocument")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("identity_document");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean")
@@ -96,6 +91,20 @@ namespace CleanArchitecture.Infrastructure.Database.Migrations
                                 .HasColumnName("address_zip_code");
                         });
 
+                    b.ComplexProperty<Dictionary<string, object>>("IdentityDocument", "CleanArchitecture.Domain.Customers.Entities.Customer.IdentityDocument#Document", b1 =>
+                        {
+                            b1.IsRequired();
+
+                            b1.Property<int>("Type")
+                                .HasColumnType("integer")
+                                .HasColumnName("identity_document_type");
+
+                            b1.Property<string>("Value")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("identity_document_value");
+                        });
+
                     b.HasKey("Id")
                         .HasName("pk_customers");
 
@@ -117,9 +126,52 @@ namespace CleanArchitecture.Infrastructure.Database.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("customer_id");
 
+                    b.Property<int>("OrderStatus")
+                        .HasColumnType("integer")
+                        .HasColumnName("order_status");
+
+                    b.Property<Guid?>("PaymentId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("payment_id");
+
                     b.Property<decimal>("Total")
                         .HasColumnType("numeric")
                         .HasColumnName("total");
+
+                    b.Property<string>("TrackingCode")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("tracking_code");
+
+                    b.ComplexProperty<Dictionary<string, object>>("ShippingAddress", "CleanArchitecture.Domain.Orders.Entities.Order.ShippingAddress#Address", b1 =>
+                        {
+                            b1.IsRequired();
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("shipping_address_city");
+
+                            b1.Property<string>("Country")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("shipping_address_country");
+
+                            b1.Property<string>("State")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("shipping_address_state");
+
+                            b1.Property<string>("Street")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("shipping_address_street");
+
+                            b1.Property<string>("ZipCode")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("shipping_address_zip_code");
+                        });
 
                     b.HasKey("Id")
                         .HasName("pk_orders");

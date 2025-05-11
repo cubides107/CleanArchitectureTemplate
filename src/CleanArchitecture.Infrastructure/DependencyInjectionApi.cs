@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using CleanArchitecture.Application.Abstractions.Authorization;
 using CleanArchitecture.Domain.Common.Interfaces;
+using CleanArchitecture.Domain.Common.Ports;
 using CleanArchitecture.Domain.Common.SharedKernel;
 using CleanArchitecture.Domain.Users.Interfaces.Authentication;
 using CleanArchitecture.Infrastructure.Authentication;

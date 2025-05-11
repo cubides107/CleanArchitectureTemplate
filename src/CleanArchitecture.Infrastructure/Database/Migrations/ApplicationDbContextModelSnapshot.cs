@@ -123,9 +123,51 @@ namespace CleanArchitecture.Infrastructure.Database.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("customer_id");
 
+                    b.Property<int>("OrderStatus")
+                        .HasColumnType("integer")
+                        .HasColumnName("order_status");
+
+                    b.Property<Guid?>("PaymentId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("payment_id");
+
                     b.Property<decimal>("Total")
                         .HasColumnType("numeric")
                         .HasColumnName("total");
+
+                    b.Property<string>("TrackingCode")
+                        .HasColumnType("text")
+                        .HasColumnName("tracking_code");
+
+                    b.ComplexProperty<Dictionary<string, object>>("ShippingAddress", "CleanArchitecture.Domain.Orders.Entities.Order.ShippingAddress#Address", b1 =>
+                        {
+                            b1.IsRequired();
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("shipping_address_city");
+
+                            b1.Property<string>("Country")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("shipping_address_country");
+
+                            b1.Property<string>("State")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("shipping_address_state");
+
+                            b1.Property<string>("Street")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("shipping_address_street");
+
+                            b1.Property<string>("ZipCode")
+                                .IsRequired()
+                                .HasColumnType("text")
+                                .HasColumnName("shipping_address_zip_code");
+                        });
 
                     b.HasKey("Id")
                         .HasName("pk_orders");

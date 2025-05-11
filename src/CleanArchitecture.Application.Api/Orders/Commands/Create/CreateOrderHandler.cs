@@ -8,6 +8,6 @@ public class CreateOrderHandler(CreateOrderService createOrderService)
 {
     public async Task<Result> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
-        return await createOrderService.Create(request.OrderDetails, request.CustomerId);
+        return await createOrderService.Create(request.OrderDetails, request.CustomerId, request.ShippingAddress);
     }
 }

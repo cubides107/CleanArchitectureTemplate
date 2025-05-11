@@ -1,6 +1,7 @@
 ﻿using CleanArchitecture.Domain.Common.SharedKernel;
 
 namespace CleanArchitecture.Domain.Orders.Events;
+
 public record OrderCreatedDomainEvent(Guid OrderId) : IDomainEvent
 {
     public Guid Id => Guid.NewGuid();
@@ -8,5 +9,5 @@ public record OrderCreatedDomainEvent(Guid OrderId) : IDomainEvent
     public DateTime OccurredOnUtc => DateTime.UtcNow;
 
 
-    public readonly Guid OrderId = OrderId ;
+    public Guid OrderId { get; init; } = OrderId ;
 }

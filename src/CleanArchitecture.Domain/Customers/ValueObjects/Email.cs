@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using CleanArchitecture.Domain.Common.Exceptions;
 using CleanArchitecture.Domain.Common.SharedKernel;
 

@@ -2,6 +2,7 @@
 using CleanArchitecture.Domain.Customers.Entities;
 using CleanArchitecture.Domain.Customers.Errors;
 using CleanArchitecture.Domain.Customers.Interfaces;
+using CleanArchitecture.Domain.Customers.ValueObjects;
 using CleanArchitecture.Domain.Orders.Dtos;
 using CleanArchitecture.Domain.Orders.Entities;
 using CleanArchitecture.Domain.Orders.Events;
@@ -19,9 +20,9 @@ public class CreateOrderService(
     IProductRepository productRepository,
     ICustomerRepository customerRepository)
 {
-    public async Task<Result> Create(List<CreateOrderDto> createOrderDtos, Guid customerId)
+    public async Task<Result> Create(List<CreateOrderDto> createOrderDtos, Guid customerId, Address shippingAddress)
     {
-        var order = Order.Create(Guid.NewGuid(), customerId);
+        var order = Order.Create(Guid.NewGuid(), customerId, shippingAddress);
 
         Customer? customer = await customerRepository.GetByIdAsync(customerId);
 

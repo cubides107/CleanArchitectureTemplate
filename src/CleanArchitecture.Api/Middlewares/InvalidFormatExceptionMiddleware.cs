@@ -14,8 +14,8 @@ internal sealed class InvalidFormatExceptionMiddleware : IExceptionHandler
         {
             Status = StatusCodes.Status400BadRequest,
             Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.1",
-            Title = "Bad Request",
-            Detail = exception.Message
+            Title = "Validation failed",
+            Detail = exception.Message,
         };
 
         httpContext.Response.StatusCode = problemDetails.Status.Value;

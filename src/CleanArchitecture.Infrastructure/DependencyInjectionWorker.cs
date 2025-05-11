@@ -15,6 +15,8 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Quartz;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
+using CleanArchitecture.Domain.Common.Ports;
+using CleanArchitecture.Domain.Orders.Events.IntegrationEvents;
 
 namespace CleanArchitecture.Infrastructure;
 public static class DependencyInjectionWorker
@@ -54,12 +56,10 @@ public static class DependencyInjectionWorker
 
     private static IServiceCollection AddEventBus(this IServiceCollection services, IConfiguration configuration)
     {
-
         var rabbitMqSettings = new RabbitMqSettings(configuration.GetConnectionString("Queue")!);
         services.AddMassTransit(configure =>
         {
             configure.SetKebabCaseEndpointNameFormatter();
-            configure.AddConsumer<OutboxProcess>();
 
             configure.UsingRabbitMq((context, cfg) =>
             {
@@ -75,8 +75,7 @@ public static class DependencyInjectionWorker
         return services;
     }
 
-   
-
+    
     private static IServiceCollection AddQuartz(this IServiceCollection services)
     {
         services.AddQuartz(configurator =>
@@ -93,6 +92,7 @@ public static class DependencyInjectionWorker
 
     private static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
     {
+        services.TryAddSingleton<IEventBus, EventBus.EventBus>();
         services.Configure<OutboxOptions>(configuration.GetSection("Messaging:Outbox"));
         services.TryAddScoped<IDbConnectionFactory, DbConnectionFactory>();
         services.Configure<OutboxOptions>(configuration.GetSection("Outbox"));
