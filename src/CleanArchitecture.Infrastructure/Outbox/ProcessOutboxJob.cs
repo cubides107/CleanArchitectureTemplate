@@ -77,7 +77,7 @@ internal sealed class ProcessOutboxJob(
             sql,
             transaction: transaction);
 
-        return outboxMessages.ToList();
+        return [.. outboxMessages];
     }
 
     private async Task UpdateOutboxMessageAsync(
