@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
 using System.Text;
-using CleanArchitecture.Application.Abstractions.Authentication;
 using CleanArchitecture.Domain.Users.Entities;
+using CleanArchitecture.Domain.Users.Interfaces.Authentication;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
@@ -19,7 +19,7 @@ internal sealed class TokenProvider(IConfiguration configuration) : ITokenProvid
         var claims = new List<Claim>
         {
             new(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            new(JwtRegisteredClaimNames.Email, user.Email)
+            new(JwtRegisteredClaimNames.Email, user.Email.Value)
         };
 
         var tokenDescriptor = new SecurityTokenDescriptor

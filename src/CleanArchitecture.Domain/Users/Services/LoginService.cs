@@ -1,4 +1,5 @@
 ﻿using CleanArchitecture.Domain.Common.SharedKernel;
+using CleanArchitecture.Domain.Common.ValueObjects;
 using CleanArchitecture.Domain.Users.Entities;
 using CleanArchitecture.Domain.Users.Errors;
 using CleanArchitecture.Domain.Users.Interfaces;
@@ -16,7 +17,7 @@ public class LoginService(
 {
     public async Task<Result<string>> Login(string email, string password, CancellationToken cancellationToken)
     {
-        User? user = await userRepository.FirstOrDefaultAsync(new UserByEmailSpec(email), cancellationToken);
+        User? user = await userRepository.FirstOrDefaultAsync(new UserByEmailSpec(new Email(email)), cancellationToken);
         if (user is null)
         {
             return Result.Failure<string>(UserErrors.NotFoundByEmail);

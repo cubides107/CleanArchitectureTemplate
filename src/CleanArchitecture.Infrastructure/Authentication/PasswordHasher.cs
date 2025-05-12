@@ -1,5 +1,5 @@
 ﻿using System.Security.Cryptography;
-using CleanArchitecture.Application.Abstractions.Authentication;
+using CleanArchitecture.Domain.Users.Interfaces.Authentication;
 
 namespace CleanArchitecture.Infrastructure.Authentication;
 internal sealed class PasswordHasher : IPasswordHasher

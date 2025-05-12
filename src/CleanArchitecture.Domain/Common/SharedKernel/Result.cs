@@ -48,4 +48,15 @@ public class Result<TValue>(TValue? value, bool isSuccess, Error error)
 
     public static Result<TValue> ValidationFailure(Error error) =>
         new(default, false, error);
+
+    public Result<TOut> Map<TOut>(Func<TValue, TOut> mapping)
+    {
+        if (IsFailure)
+        {
+            return Failure<TOut>(Error);
+        }
+
+        return Success(mapping(Value));
+    }
+
 }

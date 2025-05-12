@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
+﻿using CleanArchitecture.Domain.Common.Exceptions;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchitecture.Api.Middlewares;
@@ -11,7 +12,10 @@ internal sealed class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> log
     {
         logger.LogError(exception, "Unhandled exception occurred");
 
-        ///if (exception is not DomainException badRequestException) return false;
+        if (exception is InvalidFormatException)
+        {
+            return false;
+        }
 
         var problemDetails = new ProblemDetails
         {

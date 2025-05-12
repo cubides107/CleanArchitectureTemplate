@@ -2,7 +2,7 @@ using System.Globalization;
 using System.Reflection;
 using CleanArchitecture.Api;
 using CleanArchitecture.Api.Extensions;
-using CleanArchitecture.Application.Users;
+using CleanArchitecture.Application;
 using CleanArchitecture.Infrastructure;
 using Microsoft.AspNetCore.Localization;
 
@@ -10,14 +10,9 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSwaggerGenWithAuth();
 
-builder.Services.AddMediatR(configuration =>
-{
-    configuration.RegisterServicesFromAssembly(typeof(Program).Assembly);
-});
-
 builder.Services
-    .AddNotificationHandlers(typeof(DependencyInjectionApplication).Assembly)
     .AddApi()
+    .AddApplication()
     .AddInfrastructure(builder.Configuration);
 
 builder.Services.AddEndpoints(Assembly.GetExecutingAssembly());
@@ -54,3 +49,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 await app.RunAsync();
+
+public partial class Program;

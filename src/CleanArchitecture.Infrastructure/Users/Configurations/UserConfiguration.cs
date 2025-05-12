@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Domain.Users.Entities;
+﻿using CleanArchitecture.Domain.Common.ValueObjects;
+using CleanArchitecture.Domain.Users.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -10,6 +11,9 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
         builder.HasKey(u => u.Id);
 
         builder.HasIndex(u => u.Email).IsUnique();
+
+        builder.Property(p => p.Email)
+            .HasConversion(email => email.Value, value => new Email(value));
 
         builder.HasData(User.UserAdmin);
     }
