@@ -2,6 +2,7 @@
 using CleanArchitecture.Domain.Users.Dtos;
 using CleanArchitecture.Domain.Users.Entities;
 using CleanArchitecture.Domain.Users.Interfaces;
+using CleanArchitecture.Infrastructure.Attributes;
 using CleanArchitecture.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 

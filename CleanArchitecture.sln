@@ -17,6 +17,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.UnitTests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.IntegrationTests", "tests\CleanArchitecture.IntegrationTests\CleanArchitecture.IntegrationTests.csproj", "{FD00E50E-C516-463F-AE74-6FBA2F72BD2D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E535283F-B909-4C5C-A0EA-BC488A8B7B3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{E6C3023D-1367-423E-8CE4-2874ECB152E5}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +60,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{4058299E-3CD2-4388-AD9E-FEEC6D7C6524} = {E535283F-B909-4C5C-A0EA-BC488A8B7B3F}
+		{477E76AB-437C-4DA6-A09F-7B4D750697D7} = {E535283F-B909-4C5C-A0EA-BC488A8B7B3F}
+		{88758ADA-DB54-47F3-9D4F-2B4E6B6D87C7} = {E535283F-B909-4C5C-A0EA-BC488A8B7B3F}
+		{BF22F750-7DF8-4B40-B7E0-F8DBD6B73885} = {E535283F-B909-4C5C-A0EA-BC488A8B7B3F}
 		{ADF72FA0-3BB3-4AF5-838E-4BAFCC90024B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{FD00E50E-C516-463F-AE74-6FBA2F72BD2D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection

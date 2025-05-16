@@ -24,9 +24,7 @@ internal sealed class PermissionConfiguration : IEntityTypeConfiguration<Permiss
                 joinBuilder.ToTable("role_permissions");
 
                 joinBuilder.HasData(
-                    // Member permissions
                     CreateRolePermission(Role.Member, Permission.GetUser),
-                    // Admin permissions
                     CreateRolePermission(Role.Administrator, Permission.GetUser),
                     CreateRolePermission(Role.Administrator, Permission.CreateUser));
             });

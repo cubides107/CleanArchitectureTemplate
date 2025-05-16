@@ -54,7 +54,7 @@ public class LoginServiceTests
         string email = "cristian@gmail.com";
         string password = "12345";
 
-        userRepository.FirstOrDefaultAsync(new UserByEmailSpec(email)).ReturnsNull();
+        userRepository.FirstOrDefaultAsync(new UserByEmailSpec(new Email(email))).ReturnsNull();
 
         //Act
         Result<string> token = await _loginService.Login(email, password, CancellationToken.None);

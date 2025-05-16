@@ -12,7 +12,7 @@ using MediatR;
 
 namespace CleanArchitecture.Application.Users.Commands.Register;
 internal sealed class RegisterUserCommandHandler(IUserRepository repository,
-    IPasswordHasher passwordHasher, IUnitOfWork unitOfWork)
+    IPasswordHasher passwordHasher)
     : IRequestHandler<RegisterUserCommand, Result<Guid>>
 {
     public async Task<Result<Guid>> Handle(RegisterUserCommand command, CancellationToken cancellationToken)
@@ -33,7 +33,6 @@ internal sealed class RegisterUserCommandHandler(IUserRepository repository,
         user.Raise(new UserRegisteredDomainEvent(user.Id));
 
         await repository.AddAsync(user, cancellationToken);
-        await unitOfWork.SaveChangesAsync(cancellationToken);
 
         return user.Id;
     }

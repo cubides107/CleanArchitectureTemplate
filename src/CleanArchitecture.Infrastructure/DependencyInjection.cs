@@ -3,6 +3,7 @@ using CleanArchitecture.Application.Abstractions.Authorization;
 using CleanArchitecture.Domain.Common.Interfaces;
 using CleanArchitecture.Domain.Common.SharedKernel;
 using CleanArchitecture.Domain.Users.Interfaces.Authentication;
+using CleanArchitecture.Infrastructure.Attributes;
 using CleanArchitecture.Infrastructure.Authentication;
 using CleanArchitecture.Infrastructure.Authorization;
 using CleanArchitecture.Infrastructure.Database;

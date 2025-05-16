@@ -19,9 +19,7 @@ public class User : Entity
     public string LastName { get; private set; }
     public string PasswordHash { get; set; }
 
-    private readonly List<Role> _roles = [];
-
-    public IReadOnlyCollection<Role> Roles => [.. _roles];
+    public List<Role> Roles { get; private set; } 
 
     private User() { }
 
@@ -33,9 +31,11 @@ public class User : Entity
             Email = email,
             FirstName = firstName,
             LastName = lastName,
-            PasswordHash = passwordHash
+            PasswordHash = passwordHash,
+            Roles = [Role.Member]
         };
 
         return user;
     }
+
 }
