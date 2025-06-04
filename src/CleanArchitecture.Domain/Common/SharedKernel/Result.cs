@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using CleanArchitecture.SharedKernel;
 
 namespace CleanArchitecture.Domain.Common.SharedKernel;
 public class Result
