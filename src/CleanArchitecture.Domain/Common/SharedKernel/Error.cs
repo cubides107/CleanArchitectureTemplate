@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.SharedKernel;
+﻿namespace CleanArchitecture.Domain.Common.SharedKernel;
 
 public record Error
 {

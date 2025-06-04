@@ -1,5 +1,4 @@
 ﻿using CleanArchitecture.Domain.Common.SharedKernel;
-using CleanArchitecture.SharedKernel;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;

@@ -1,5 +1,5 @@
 ﻿using CleanArchitecture.Application.Abstractions.Authorization;
-using CleanArchitecture.SharedKernel;
+using CleanArchitecture.Domain.Common.SharedKernel;
 using MediatR;
 
 namespace CleanArchitecture.Application.Users.Queries.GetUserPermissions;

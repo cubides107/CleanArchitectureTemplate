@@ -1,5 +1,5 @@
-﻿using CleanArchitecture.Domain.Common.ValueObjects;
-using CleanArchitecture.SharedKernel;
+﻿using CleanArchitecture.Domain.Common.SharedKernel;
+using CleanArchitecture.Domain.Common.ValueObjects;
 
 namespace CleanArchitecture.Domain.Users.Entities;
 public class User : Entity

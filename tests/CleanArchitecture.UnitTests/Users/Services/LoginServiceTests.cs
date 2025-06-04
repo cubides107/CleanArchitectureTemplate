@@ -1,13 +1,11 @@
 ﻿using CleanArchitecture.Domain.Common.SharedKernel;
 using CleanArchitecture.Domain.Common.ValueObjects;
-using CleanArchitecture.Domain.Customers.ValueObjects;
 using CleanArchitecture.Domain.Users.Entities;
 using CleanArchitecture.Domain.Users.Errors;
 using CleanArchitecture.Domain.Users.Interfaces;
 using CleanArchitecture.Domain.Users.Interfaces.Authentication;
 using CleanArchitecture.Domain.Users.Services;
 using CleanArchitecture.Domain.Users.Specifications;
-using CleanArchitecture.SharedKernel;
 using CleanArchitecture.UnitTests.Users.Builders;
 using FluentAssertions;
 using NSubstitute;

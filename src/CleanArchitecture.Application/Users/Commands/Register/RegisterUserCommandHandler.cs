@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using CleanArchitecture.Domain.Common.Interfaces;
+using CleanArchitecture.Domain.Common.SharedKernel;
 using CleanArchitecture.Domain.Common.ValueObjects;
 using CleanArchitecture.Domain.Users.Entities;
 using CleanArchitecture.Domain.Users.Errors;
@@ -7,7 +8,6 @@ using CleanArchitecture.Domain.Users.Events;
 using CleanArchitecture.Domain.Users.Interfaces;
 using CleanArchitecture.Domain.Users.Interfaces.Authentication;
 using CleanArchitecture.Domain.Users.Specifications;
-using CleanArchitecture.SharedKernel;
 using MediatR;
 
 namespace CleanArchitecture.Application.Users.Commands.Register;

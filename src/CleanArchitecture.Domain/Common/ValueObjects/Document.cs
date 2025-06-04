@@ -1,6 +1,5 @@
 ﻿using System.Text.RegularExpressions;
 using CleanArchitecture.Domain.Common.Exceptions;
-using CleanArchitecture.Domain.Customers.ValueObjects;
 
 namespace CleanArchitecture.Domain.Common.ValueObjects;
 public class Document

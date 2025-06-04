@@ -1,4 +1,4 @@
-﻿namespace CleanArchitecture.Domain.Customers.ValueObjects;
+﻿namespace CleanArchitecture.Domain.Common.ValueObjects;
 public record Address
 {
     public string Street { get; init; }

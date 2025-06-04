@@ -1,6 +1,6 @@
 ﻿using CleanArchitecture.Application.Abstractions.Authorization;
+using CleanArchitecture.Domain.Common.SharedKernel;
 using CleanArchitecture.Infrastructure.Authentication;
-using CleanArchitecture.SharedKernel;
 using Microsoft.AspNetCore.Authorization;
 
 namespace CleanArchitecture.Infrastructure.Authorization;
