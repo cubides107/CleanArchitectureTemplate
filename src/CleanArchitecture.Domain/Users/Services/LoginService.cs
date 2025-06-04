@@ -5,7 +5,6 @@ using CleanArchitecture.Domain.Users.Errors;
 using CleanArchitecture.Domain.Users.Interfaces;
 using CleanArchitecture.Domain.Users.Interfaces.Authentication;
 using CleanArchitecture.Domain.Users.Specifications;
-using CleanArchitecture.SharedKernel;
 
 namespace CleanArchitecture.Domain.Users.Services;
 

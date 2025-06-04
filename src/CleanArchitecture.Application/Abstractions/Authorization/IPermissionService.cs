@@ -1,4 +1,4 @@
-﻿using CleanArchitecture.SharedKernel;
+﻿using CleanArchitecture.Domain.Common.SharedKernel;
 
 namespace CleanArchitecture.Application.Abstractions.Authorization;
 public interface IPermissionService

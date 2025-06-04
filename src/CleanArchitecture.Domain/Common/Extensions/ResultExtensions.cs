@@ -1,5 +1,5 @@
 ﻿
-using CleanArchitecture.SharedKernel;
+using CleanArchitecture.Domain.Common.SharedKernel;
 
 namespace CleanArchitecture.Domain.Common.Extensions;
 public static class ResultExtensions

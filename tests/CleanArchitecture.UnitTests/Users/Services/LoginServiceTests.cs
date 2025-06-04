@@ -7,7 +7,6 @@ using CleanArchitecture.Domain.Users.Interfaces;
 using CleanArchitecture.Domain.Users.Interfaces.Authentication;
 using CleanArchitecture.Domain.Users.Services;
 using CleanArchitecture.Domain.Users.Specifications;
-using CleanArchitecture.SharedKernel;
 using CleanArchitecture.UnitTests.Users.Builders;
 using FluentAssertions;
 using NSubstitute;

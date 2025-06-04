@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using CleanArchitecture.SharedKernel;
 
-namespace CleanArchitecture.SharedKernel;
+namespace CleanArchitecture.Domain.Common.SharedKernel;
 public class Result
 {
     public Result(bool isSuccess, Error error)

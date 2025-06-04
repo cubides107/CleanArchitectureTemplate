@@ -1,6 +1,6 @@
 ﻿using CleanArchitecture.Domain.Common.Extensions;
+using CleanArchitecture.Domain.Common.SharedKernel;
 using CleanArchitecture.Domain.Users.Services;
-using CleanArchitecture.SharedKernel;
 using MediatR;
 
 namespace CleanArchitecture.Application.Users.Commands.Login;

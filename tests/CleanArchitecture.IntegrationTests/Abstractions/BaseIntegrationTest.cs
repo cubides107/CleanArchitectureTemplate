@@ -37,6 +37,6 @@ public abstract class BaseIntegrationTest : IClassFixture<IntegrationTestWebAppF
         response.EnsureSuccessStatusCode();
         string token = await response.Content.ReadAsStringAsync();
         LoginUserDto? loginDto = JsonSerializer.Deserialize<LoginUserDto>(token);
-        HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", loginDto?.token);
+        HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", loginDto?.Token);
     }
 }
