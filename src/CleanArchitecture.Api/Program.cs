@@ -38,6 +38,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     app.ApplyMigrations();
 }
+
 app.UseRequestLocalization();
 
 app.MapEndpoints();
